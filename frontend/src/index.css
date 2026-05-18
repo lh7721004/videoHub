@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.video-progress,
+.video-volume {
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  height: 20px;
+}
+
+.video-progress:focus-visible,
+.video-volume:focus-visible {
+  outline: 2px solid rgb(255 255 255 / 0.85);
+  outline-offset: 3px;
+  border-radius: 9999px;
+}
+
+.video-progress::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    to right,
+    #38bdf8 0%,
+    #a78bfa var(--progress),
+    transparent var(--progress),
+    transparent 100%
+  );
+}
+
+.video-progress::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin-top: -5px;
+  border: 3px solid white;
+  border-radius: 9999px;
+  background: #2563eb;
+  box-shadow: 0 8px 22px rgb(0 0 0 / 0.35), 0 0 0 5px rgb(37 99 235 / 0.18);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.video-progress:hover::-webkit-slider-thumb,
+.video-progress:focus-visible::-webkit-slider-thumb {
+  transform: scale(1.12);
+  box-shadow: 0 10px 26px rgb(0 0 0 / 0.42), 0 0 0 7px rgb(37 99 235 / 0.24);
+}
+
+.video-progress::-moz-range-track {
+  height: 6px;
+  border-radius: 9999px;
+  background: transparent;
+}
+
+.video-progress::-moz-range-progress {
+  height: 6px;
+  border-radius: 9999px;
+  background: linear-gradient(to right, #38bdf8, #a78bfa);
+}
+
+.video-progress::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 3px solid white;
+  border-radius: 9999px;
+  background: #2563eb;
+  box-shadow: 0 8px 22px rgb(0 0 0 / 0.35), 0 0 0 5px rgb(37 99 235 / 0.18);
+}
+
+.video-volume {
+  height: 16px;
+}
+
+.video-volume::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    to right,
+    white 0%,
+    white var(--volume),
+    rgb(255 255 255 / 0.24) var(--volume),
+    rgb(255 255 255 / 0.24) 100%
+  );
+}
+
+.video-volume::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  margin-top: -4px;
+  border: 2px solid white;
+  border-radius: 9999px;
+  background: #111827;
+  transition: transform 150ms ease;
+}
+
+.video-volume:hover::-webkit-slider-thumb,
+.video-volume:focus-visible::-webkit-slider-thumb {
+  transform: scale(1.12);
+}
+
+.video-volume::-moz-range-track {
+  height: 4px;
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 0.24);
+}
+
+.video-volume::-moz-range-progress {
+  height: 4px;
+  border-radius: 9999px;
+  background: white;
+}
+
+.video-volume::-moz-range-thumb {
+  width: 8px;
+  height: 8px;
+  border: 2px solid white;
+  border-radius: 9999px;
+  background: #111827;
+}
