@@ -33,6 +33,8 @@ npm run dev
 
 The frontend dev server is configured to use port `5300` and proxy API requests to backend port `8300`.
 
+For a split-domain deployment such as `https://videohub.lkim.me` for frontend and `https://api.videohub.lkim.me` for backend, copy `frontend/.env.production.example` to `frontend/.env.production` before building.
+
 ## Environment
 
 Use `backend/.env.example` as the template. Never commit `backend/.env`; it contains database and SMTP secrets.

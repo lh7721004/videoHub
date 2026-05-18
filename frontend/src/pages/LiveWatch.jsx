@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Hls from 'hls.js';
 import api from '../lib/api';
 import { useAuth } from '../lib/AuthContext';
+import { buildLiveUrl, buildWsUrl } from '../lib/urls';
 
 function ChatMoreMenu({ messageId, user, messageUserId }) {
   const [open, setOpen] = useState(false);
@@ -75,7 +76,7 @@ export default function LiveWatch() {
   useEffect(() => {
     if (!stream || !videoRef.current) return;
 
-    const hlsUrl = `/live/${stream.stream_key}/index.m3u8`;
+    const hlsUrl = buildLiveUrl(`/${stream.stream_key}/index.m3u8`);
 
     const tryConnect = () => {
       if (Hls.isSupported()) {
@@ -129,9 +130,7 @@ export default function LiveWatch() {
   useEffect(() => {
     api.get(`/streams/${id}/chat`).then((r) => setMessages(r.data));
 
-    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    const wsHost = window.location.host;
-    const wsUrl = `${protocol}//${wsHost}/ws/chat/${id}`;
+    const wsUrl = buildWsUrl(`/chat/${id}`);
     const ws = new WebSocket(wsUrl);
     wsRef.current = ws;
 

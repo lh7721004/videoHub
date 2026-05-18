@@ -302,18 +302,29 @@ Use Elastic IP for EC2 so the API DNS target does not change after restart.
 
 ## 11. Frontend Runtime Configuration
 
-The frontend currently calls relative `/api`, `/uploads`, `/ws`, and `/live` paths through Vite dev proxy. For production behind CloudFront, either:
+For split domains:
 
-- Put frontend and API under the same domain with CloudFront behaviors, or
-- Add production API base URL support in frontend.
+```text
+https://videohub.lkim.me      -> frontend
+https://api.videohub.lkim.me  -> backend
+```
 
-Recommended CloudFront behavior option:
+Create `frontend/.env.production` before building:
 
-- `app.lkim.me/*` -> frontend S3
-- `app.lkim.me/api/*` -> API origin `api.lkim.me`
-- `app.lkim.me/ws/*` -> API origin `api.lkim.me`
+```env
+VITE_API_BASE_URL=https://api.videohub.lkim.me/api
+VITE_WS_BASE_URL=wss://api.videohub.lkim.me/ws
+VITE_LIVE_BASE_URL=https://api.videohub.lkim.me/live
+```
 
-This keeps frontend code using relative URLs.
+Then build:
+
+```bash
+cd frontend
+npm run build
+```
+
+If you later route `/api/*` and `/ws/*` through the same CloudFront distribution as the frontend, you can remove these production env values and use relative paths again.
 
 ## 12. Email Verification
 
@@ -386,4 +397,3 @@ For MVP:
 - [ ] Signup email test works
 - [ ] Video upload test works
 - [ ] Video playback uses `https://video.lkim.me/...`
-

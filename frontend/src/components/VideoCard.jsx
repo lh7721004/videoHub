@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { buildApiUrl } from '../lib/urls';
 
 function timeAgo(dateStr) {
   const diff = Date.now() - new Date(dateStr).getTime();
@@ -51,7 +52,7 @@ export default function VideoCard({ video }) {
       <div className="aspect-video bg-gray-900 rounded-xl overflow-hidden mb-3 relative shadow-sm group-hover:shadow-lg transition-shadow">
         <video
           ref={videoRef}
-          src={video.video_url || `/uploads/${video.filename}`}
+          src={video.video_url || buildApiUrl(`/videos/${video.id}/stream`)}
           className="w-full h-full object-cover"
           preload="metadata"
           muted

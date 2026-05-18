@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../lib/api';
 import { useAuth } from '../lib/AuthContext';
+import { buildApiUrl } from '../lib/urls';
 import CommentSection from '../components/CommentSection';
 
 function formatViews(n) {
@@ -164,7 +165,7 @@ export default function VideoDetail() {
         <div className="relative group bg-black">
           <video
             ref={videoRef}
-            src={video.video_url || `/api/videos/${video.id}/stream`}
+            src={video.video_url || buildApiUrl(`/videos/${video.id}/stream`)}
             autoPlay
             onLoadedMetadata={handleLoadedMetadata}
             onTimeUpdate={handleTimeUpdate}

@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import api from '../lib/api';
 import { useAuth } from '../lib/AuthContext';
+import { buildWsUrl } from '../lib/urls';
 import CommentItem from './CommentItem';
 
 export default function CommentSection({ videoId }) {
@@ -18,9 +19,7 @@ export default function CommentSection({ videoId }) {
   }, [videoId]);
 
   useEffect(() => {
-    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    const wsHost = window.location.host;
-    const wsUrl = `${protocol}//${wsHost}/ws/comments/${videoId}`;
+    const wsUrl = buildWsUrl(`/comments/${videoId}`);
     const ws = new WebSocket(wsUrl);
     wsRef.current = ws;
 
