@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import api from '../lib/api';
 import { useAuth } from '../lib/AuthContext';
 
+const RTMP_URL = import.meta.env.VITE_RTMP_URL || 'rtmp://localhost:1935/live';
+
 export default function GoLive() {
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -46,10 +48,10 @@ export default function GoLive() {
           </label>
           <div className="flex items-center gap-2">
             <code className="flex-1 bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm font-mono">
-              rtmp://localhost:1935/live
+              {RTMP_URL}
             </code>
             <button
-              onClick={() => copy('rtmp://localhost:1935/live', 'server')}
+              onClick={() => copy(RTMP_URL, 'server')}
               className="px-4 py-3 bg-gray-200 rounded-lg text-sm hover:bg-gray-300"
             >
               {copied === 'server' ? 'Copied!' : 'Copy'}
@@ -101,7 +103,7 @@ export default function GoLive() {
         <ol className="text-sm text-blue-800 space-y-2 list-decimal list-inside">
           <li>Open OBS Studio → Settings → Stream</li>
           <li>Service: <strong>Custom...</strong></li>
-          <li>Server: <strong>rtmp://localhost:1935/live</strong></li>
+          <li>Server: <strong>{RTMP_URL}</strong></li>
           <li>Stream Key: <strong>{streamKey}</strong></li>
           <li>Click "Start Streaming" — your stream will appear on the home page automatically!</li>
         </ol>
