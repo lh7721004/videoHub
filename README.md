@@ -1,6 +1,6 @@
-# VidFlow
+# VideoHub
 
-VidFlow is a YouTube-style video platform MVP built with React, FastAPI, MySQL, S3-ready video uploads, comments, likes, search, live-stream metadata, and WebSocket chat.
+VideoHub is a YouTube-style video platform MVP built with React, FastAPI, MySQL, S3-ready video uploads, comments, likes, search, live-stream metadata, and WebSocket chat.
 
 ## Stack
 

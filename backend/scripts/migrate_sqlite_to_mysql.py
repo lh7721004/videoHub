@@ -62,7 +62,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Migrate videoHub SQLite data to MySQL.")
     parser.add_argument(
         "--sqlite-path",
-        default=str(ROOT_DIR / "vidflow.db"),
+        default=str(ROOT_DIR / "videohub.db"),
         help="Path to the existing SQLite database.",
     )
     parser.add_argument(

@@ -1,6 +1,6 @@
-# VidFlow AWS Console Setup Guide
+# VideoHub AWS Console Setup Guide
 
-This guide deploys VidFlow with a low-cost MVP architecture:
+This guide deploys VideoHub with a low-cost MVP architecture:
 
 - Frontend: S3 + CloudFront
 - Backend: EC2 + FastAPI
@@ -328,7 +328,7 @@ If you later route `/api/*` and `/ws/*` through the same CloudFront distribution
 
 ## 12. Email Verification
 
-VidFlow uses SMTP for signup verification.
+VideoHub uses SMTP for signup verification.
 
 Current expected env:
 

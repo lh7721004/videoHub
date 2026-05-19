@@ -16,7 +16,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-white border-b border-gray-200 px-4 py-3">
       <div className="max-w-7xl mx-auto flex items-center gap-4">
         <Link to="/" className="text-xl font-bold text-red-600 shrink-0">
-          VidFlow
+          VideoHub
         </Link>
 
         <form onSubmit={handleSearch} className="flex-1 max-w-xl mx-auto">

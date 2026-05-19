@@ -25,7 +25,7 @@ export default function Login() {
   return (
     <div className="min-h-[80vh] flex items-center justify-center px-4">
       <div className="w-full max-w-md">
-        <h1 className="text-2xl font-bold text-center mb-8">Login to VidFlow</h1>
+        <h1 className="text-2xl font-bold text-center mb-8">Login to VideoHub</h1>
         {error && <p className="text-red-500 text-sm text-center mb-4">{error}</p>}
         <form onSubmit={handleSubmit} className="space-y-4">
           <input

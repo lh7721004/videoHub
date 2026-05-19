@@ -9,7 +9,7 @@ from .ws import manager, chat_manager
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="VidFlow API")
+app = FastAPI(title="VideoHub API")
 
 app.add_middleware(
     CORSMiddleware,

@@ -128,6 +128,6 @@ console.log(`
 ============================================
   OBS Settings:
     Server   : rtmp://localhost:1935/live
-    Stream Key: (from VidFlow app)
+    Stream Key: (from VideoHub app)
 ============================================
 `);

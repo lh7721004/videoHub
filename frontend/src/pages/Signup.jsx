@@ -61,7 +61,7 @@ export default function Signup() {
   return (
     <div className="min-h-[80vh] flex items-center justify-center px-4">
       <div className="w-full max-w-md">
-        <h1 className="text-2xl font-bold text-center mb-8">Join VidFlow</h1>
+        <h1 className="text-2xl font-bold text-center mb-8">Join VideoHub</h1>
         {error && <p className="text-red-500 text-sm text-center mb-4">{error}</p>}
         {message && <p className="text-green-600 text-sm text-center mb-4">{message}</p>}
         <form onSubmit={handleSubmit} className="space-y-4">
