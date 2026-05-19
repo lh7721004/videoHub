@@ -87,7 +87,7 @@ CORS configuration:
   {
     "AllowedOrigins": [
       "https://app.lkim.me",
-      "http://localhost:5300"
+      "https://videohub.lkim.me"
     ],
     "AllowedMethods": ["GET", "PUT", "HEAD"],
     "AllowedHeaders": ["*"],

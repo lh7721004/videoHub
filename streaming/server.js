@@ -6,7 +6,7 @@ const path = require('path');
 const fs = require('fs');
 const http = require('http');
 
-const BACKEND_URL = 'http://localhost:8300';
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:8300';
 const MEDIA_DIR = path.join(__dirname, 'media');
 const FFMPEG_PATH = '/opt/homebrew/bin/ffmpeg';
 const HLS_PORT = 8888;
@@ -61,7 +61,7 @@ function startHlsTranscode(streamKey) {
   fs.mkdirSync(outDir, { recursive: true });
 
   const args = [
-    '-i', `rtmp://localhost:1935/live/${streamKey}`,
+    '-i', `rtmp://127.0.0.1:1935/live/${streamKey}`,
     '-c:v', 'copy',
     '-c:a', 'aac',
     '-f', 'hls',
@@ -123,11 +123,11 @@ console.log(`
 ============================================
   RTMP Streaming Server Started
 ============================================
-  RTMP URL : rtmp://localhost:1935/live
-  HLS URL  : http://localhost:${HLS_PORT}/live/{key}/index.m3u8
+  RTMP URL : rtmp://0.0.0.0:1935/live
+  HLS URL  : http://0.0.0.0:${HLS_PORT}/live/{key}/index.m3u8
 ============================================
   OBS Settings:
-    Server   : rtmp://localhost:1935/live
+    Server   : rtmp://<your-server>:1935/live
     Stream Key: (from VideoHub app)
 ============================================
 `);
